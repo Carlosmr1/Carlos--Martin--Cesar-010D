@@ -1,0 +1,276 @@
+*::after,
+*::before,
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+body{
+    background: hsl(0, 0%, 0%);
+    color: rgb(255, 255, 255);
+
+}
+header{
+  display: flex ;
+  justify-content: space-between;
+  background-color: rgb(17, 17, 17);
+  color: #000000;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.superior #logo{
+    width: 20%;
+    height: 100%;
+    float: left;
+    margin-top: auto;
+    margin-left: 2vh;
+}
+ .superior{
+   justify-content: space-between;
+   display: inline-block;
+ }
+
+ /*carrito*/
+
+ 
+ .icon{
+   height: 40px;
+   width: 40px;
+   stroke: #000;
+ }
+ 
+ .conteiner-icon{
+   position: relative;
+  }
+  .count-productos{
+    position: absolute;
+    top: 40%;
+    right: 0;
+
+    background-color: black;
+    color: white;
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border-radius: 50%;
+  }
+
+  .conteiner-cart-products{
+    position: absolute;
+    top: 50px;
+    right: 0;
+
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
+  }
+
+  .cart-product{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+  }
+
+  .info-carrito-prod{
+    display: flex;
+    justify-content: space-between;
+    flex: 0.8;
+    
+  }
+  .titulo-carrito{
+    font-size: 20px;
+  }
+
+  .precio-carrito{
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .cantidad-product{
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .cart-total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    gap: 20px;
+    
+
+  }
+  
+  .cart-total h3{
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+
+  .totalPagar{
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+
+  .icon-close{
+    width: 25px;
+    height: 25px;
+  }
+   .icon:hover{
+    cursor: pointer;
+   }
+
+  .icon-close:hover{
+    stroke: red;
+    cursor: pointer;
+  }
+
+  #contador-productos{
+    font-size: 15px;
+  }
+
+/*menu*/
+.menu{
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+ }
+.menu a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    display: block;
+    
+ }
+
+ .nav .menu li{
+    display: inline-block;
+  
+
+ }
+ .nav .menu li:hover{
+    background:#f0d16c;
+ }
+ .nav{
+   background-color: rgb(255, 188, 3);
+ }
+
+ .contCarrusel{
+   height: 300px;
+   overflow: hidden;
+ }
+ .itemCarrusel{
+   height: 100%;
+   position: relative;
+ }
+ .tarjetaCarrusel{
+   height: 100%;
+ }
+ .flechasCarrusel{
+   position: absolute;
+   top: 0;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 20px;
+ }
+ 
+ #tarjeta1{
+   background-color: rgb(255, 117, 117);
+ }
+ #tarjeta2{
+   background-color: rgb(150, 150, 64);
+ }
+ #tarjeta3{
+   background-color: darkcyan;
+ }
+
+ 
+ #contPuntos > a{
+   text-decoration: none;
+   font-size: 2em;
+   color: rgb(255, 255, 255);
+   }
+   
+   i{
+      color: white;
+   }
+#contPuntos{
+      display: flex;
+      justify-content: space-around;
+   }  
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
+
+/*juegos*/
+.conteiner-juegos{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.juego{
+  border-radius: 10px;
+}
+
+.juego:hover{
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+.juego img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  transition: all .5s;
+}
+.juego figure{
+  overflow: hidden;
+}
+
+.juego:hover img{
+  transform: scale(1.2);
+}
+
+
+.info-juego{
+  padding: 15px 30px;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price{
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.info-juego button{
+  border: none;
+  background: none;
+  background-color: rgb(255, 196,0);
+  color: white;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+
+.info-juego button:hover{
+  background-color: rgb(255, 196, 114);
+}
