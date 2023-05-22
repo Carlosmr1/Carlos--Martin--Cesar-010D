@@ -133,6 +133,7 @@ header{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-left: 20%;
 }
 
 .price{
@@ -147,9 +148,11 @@ header{
     color: #fff;
     padding: 15px 10px;
     cursor: pointer;
+    margin-left: 10%;
 }
 .info-product button:hover{
-    background-color: #696967;
+    background-color: #f8f881;
+    color: #000;
 }
 
 
