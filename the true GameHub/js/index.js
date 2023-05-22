@@ -52,3 +52,4 @@ agregar.addEventListener("click", ()=>{
     number++;
     count.innerHTML = number;
 })
+
