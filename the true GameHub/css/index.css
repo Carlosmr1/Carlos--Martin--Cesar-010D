@@ -9,6 +9,7 @@
     vertical-align: middle;    
     text-align: center;
     text-transform: capitalize;
+    cursor:context-menu;
 }
 
 .animacion-bg::before, .animacion-bg::after{
@@ -35,4 +36,17 @@
     100%{
         background-position: 0 0;
     }
+}
+.exclusivSection{
+    display: grid;
+    grid-template-columns:repeat(4, 1fr)
+}
+
+#items{
+    max-width: 100%;
+    min-height: 100%;
+}
+#dist{
+    height: 71%;
+    width: 100%;
 }

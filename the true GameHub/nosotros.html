@@ -12,29 +12,29 @@
 		<link rel="stylesheet" href="css/styles.css" />
 		<script src="https://kit.fontawesome.com/de1c5fdddc.js" crossorigin="anonymous"></script>
 	</head>
-	<body>
+	<body id="us">
 		<header>
 			<img src="img/logo.png" alt="logo" id="logo">
-
 			<div class="container-icon">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					class="icon-cart"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-					/>
-				</svg>
-				
+				<a href="carrito.html">
+					<img src="img/carrito.png" alt="hola">
+				</a>
+				<div class="count-products">
+					<span id="contador-productos">0</span>
+				</div>
+	
+				<div class="container-cart-products hidden-cart">
+					<div class="cart-product">
+					</div>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+						stroke="currentColor" class="icon-close">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</div>
+	
+			</div>
 			</div>
 		</header>
-		
 		<div class="menu">
 			<nav class="navbar navbar-expand-lg navbar-light">
 			<a class="navbar-brand" href="#">MENU</a>
@@ -47,11 +47,14 @@
 				<a class="nav-item nav-link" href="juegos.html">Juegos</a>
 				<a class="nav-item nav-link" href="tableGame.html">Juegos De Mesa</a>
 				<a class="nav-item nav-link" href="#">Nosotros</a>
+				<a class="nav-item nav-link" href="cuenta.html">Cuenta</a>
 			  </div>
 			</div>
 		  </nav>
 		</div>
-        <section class="info">
+		<div class="info-cont">
+        	<section class="info">
+			<div>
             <p>
                 <br>
                 ¿Quienes somos?
@@ -65,40 +68,9 @@
                 <p>
                 En resumen, en nuestra empresa de venta de juegos, nos esforzamos por ofrecer a nuestros clientes la mejor experiencia de compra posible. Desde la selección de productos hasta el servicio al cliente, siempre estamos enfocados en brindar una experiencia excepcional.</p>
             </p>
-			
-
-        </section>
-		<div id="fondo">
-			<img src="img/fond.jpg" alt="fonso">
+        	</section>
 		</div>
-		<footer class="pie-pagina">
-			<div class="grupo-1">
-				<div class="box">
-					<figure>
-						<a href="#">
-							<img src="img/logo.png" alt="Logo de gamehub">
-						</a>
-					</figure>
-				</div>
-				<div class="box">
-					<h2>SOBRE NOSOTROS</h2>
-					<p>infogamehub22@gmail.com</p>
-					<p>+56930022583</p>
-					<p>Ubicados en: <br>Un pc de un lolero</p>
-				</div>
-				<div class="box">
-					<h2>SIGUENOS</h2>
-					<div class="red-social">
-						<a href="https://www.facebook.com/GameHubINT/" class="fa fa-facebook"></a>
-						<a href="https://www.instagram.com/GameHubInt/" class="fa fa-instagram"></a>
-						<a href="https://twitter.com/game_hub22" class="fa fa-twitter"></a>
-					</div>
-				</div>
-			</div>
-			<div class="grupo-2">
-				<small>&copy; 2023 <b>Pasto Interteiment</b> - Todos los Derechos Reservados por mi.</small>
-			</div>
-		</footer>
+		 
 		
         <script src="js/index.js"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
