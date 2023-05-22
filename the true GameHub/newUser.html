@@ -109,7 +109,7 @@
 
     <!--loggin textfields-->
     <fieldset>
-      <form action="action_page.php" method="post">
+      <form name="formulario" action="#" method="post" >
         <div class="contenedor">
           <label for="uname"><b>Correo Electronico</b></label>
           <br />
@@ -117,6 +117,7 @@
             type="text"
             placeholder="Ingrese Correo Electronico"
             name="correo"
+            id="correo"
             required
           />
           <br>
@@ -125,8 +126,8 @@
           <input
             type="text"
             placeholder="Ingrese Nombre Usuario"
-            name="uname"
-            required
+            name="user"
+            id="user"
           />
           <br />
           <label for="psw"><b>Contraseña</b></label>
@@ -135,22 +136,24 @@
             type="password"
             placeholder="Ingrese Contraseña"
             name="psw"
-            required
+            id="psw"
+            
           />
           <br />
-          <label for="psw"><b>Confirmar Contraseña</b></label>
+          <label for="confPsw"><b>Confirmar Contraseña</b></label>
           <br />
           <input
             type="password"
             placeholder="Confirme su la Contraseña"
-            name="psw"
+            name="confPsw"
+            id="confPsw"
             minlength="3"
-            maxlength="8"
-            required
+            maxlength="8"return 
+            
           />
           
           <br />
-          <button type="submit">CREAR CUENTA</button>
+          <button type="submit" name="submit" value="sumbit" onclick="enviarFormulario()">CREAR CUENTA</button>
           <br />
         </div>
       </form>
@@ -186,5 +189,6 @@
         >
       </div>
     </footer>
+    <script src="js/index.js"></script>
   </body>
 </html>
