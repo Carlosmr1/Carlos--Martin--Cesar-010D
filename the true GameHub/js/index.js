@@ -73,13 +73,18 @@ function agregarC(id){
     carrito.push(item);
     mostrarCarrito();
 }
-const mostrarCarrito= ()=>{
-    const contenedor = document.getElementById("divi");
+const mostrarCarrito = ()=>{
+
+    guardarCarrito();
+}
+
+function carro(){
+    const contenedor = document.querySelector('.modal .modal-body');
+    console.log(contenedor);
     carrito.forEach((prod) => {
         const {id, nombre, precio} = prod;
-        contenedor.innerHTML = nombre;
+        contenedor.innerHTML= nombre;
     })
-    guardarCarrito();
 }
 
 function eliminarProducto(id){
@@ -92,6 +97,7 @@ function guardarCarrito(){
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 const carrito = []
+
 
 
 agregar.addEventListener("click", ()=>{

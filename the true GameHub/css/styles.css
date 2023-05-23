@@ -86,6 +86,13 @@ header{
     right: 0; 
 }
 
+.modal-body{
+  display: flex;
+  align-items: center;
+  background-color: azure;
+  color: black;
+
+}
 
 
 
