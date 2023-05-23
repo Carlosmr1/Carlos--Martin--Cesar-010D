@@ -72,13 +72,15 @@ function agregarC(id){
     const item = listaProductos.find((producto) => producto.id === id);
     carrito.push(item);
     mostrarCarrito();
+    console.log(carrito);
 }
 const mostrarCarrito= ()=>{
-    const contenedor = document.getElementById("divi");
-    carrito.forEach((prod) => {
-        const {id, nombre, precio} = prod;
-        contenedor.innerHTML = nombre;
+    const contenedor = document.querySelector('.modal-content');
+    carrito.forEach((producto) => {
+        const {id, nombre, precio} = producto;
+        contenedor.innerHTML += '<p id="carro">'+nombre + " " + "$" + precio +"</p> <br>";
     })
+
     guardarCarrito();
 }
 
@@ -99,3 +101,36 @@ agregar.addEventListener("click", ()=>{
     count.innerHTML = number;
 });
 
+
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+function close() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+const finCompra = document.getElementById("comprarbtn");
+function finalizarCompra(){
+    carrito.length = 0;
+    modal.style.display = "none";
+    alert("GRACIAS POR SU COMPRA :D")
+    console.log(carrito);
+}
