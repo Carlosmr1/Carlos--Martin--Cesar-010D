@@ -60,6 +60,21 @@ const listaProductos = [
         id:2,
         nombre:"Minecraft",
         precio:20000
+    },
+    {
+        id: 3,
+        nombre:"The Last of Us",
+        precio:30900
+    },
+    {
+        id: 4,
+        nombre:"Project Zomboid",
+        precio:17000
+    },
+    {
+        id: 5,
+        nombre:"Cult of The Lamb",
+        precio: 14909
     }
 ];
 
@@ -74,13 +89,16 @@ function agregarC(id){
     mostrarCarrito();
     console.log(carrito);
 }
+const contenedor = document.querySelector('.modal-content');
 const mostrarCarrito= ()=>{
-    const contenedor = document.querySelector('.modal-content');
+    
     carrito.forEach((producto) => {
         const {id, nombre, precio} = producto;
+
         contenedor.innerHTML += '<p id="carro">'+nombre + " " + "$" + precio +"</p> <br>";
     })
-
+    number= number+1;
+    count.innerHTML = number;
     guardarCarrito();
 }
 
@@ -96,10 +114,6 @@ function guardarCarrito(){
 const carrito = []
 
 
-agregar.addEventListener("click", ()=>{
-    number++;
-    count.innerHTML = number;
-});
 
 
 var modal = document.getElementById("myModal");
@@ -129,8 +143,11 @@ window.onclick = function(event) {
 
 const finCompra = document.getElementById("comprarbtn");
 function finalizarCompra(){
-    carrito.length = 0;
     modal.style.display = "none";
     alert("GRACIAS POR SU COMPRA :D")
+    contenedor.innerHTML = '<button onclick="finalizarCompra()" id="comprarbtn"> COMPRAR</button>';
+    count.innerHTML = "0";
+    carrito.length = 0;
+    number = 0;
     console.log(carrito);
 }
