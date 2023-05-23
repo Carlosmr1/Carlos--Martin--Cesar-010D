@@ -1,48 +1,82 @@
 
-function enviarFormulario()
-{
-var correo = document.getElementById("correo");
-var usuario = document.getElementById("user");
-var contrasena = document.getElementById("psw");
-var confirmarContrasena = document.getElementById("confPsw");
-var correoform = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-//validar usuario
-if(usuario.value === "" || usuario.value === null){
-    alert("Debe ingresar un Nombre de usuario");
-    
-    return false;
-    }
 
-// validar contraseña
-if (contrasena.value === "" || contrasena.value === null) {
+$('#submit').click(function() {
+
+    var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+
+    if (regex.test($('#correo').val().trim())) {
+        
+    } else {
+        alert('La direccón de correo no es válida');
+    }
+    //validar usuario
+    if($('#user').val() === "" || $('#user').val()=== null){
+        alert("Debe ingresar un Nombre de usuario");
+        
+        return false;
+        }
+
+    // validar contraseña
+if ($('#psw').val() === "" || $('#psw').val() === null) {
     alert("Debe ingresar una contraseña");
     return false;
 }
 // validar confirmación de contraseña
-if (confirmarContrasena.value === "" || confirmarContrasena.value === null) {
+if ($('#confPsw').val() === "" || $('#confPsw').val() === null) {
     alert("Debe confirmar la contraseña");
     return false;
     }
     
-if (confirmarContrasena.value !== contrasena.value ) {
+if ($('#psw').val() !== $('#confPsw').val() ) {
 alert("Las contraseñas no coinciden");
 return false;
 }
-// validar correo
-if(correo.value.match(correoform))
-{
 
-return true;
-}
-else
-{
-alert("Debe ingresar un correo electronico valido");
+});
+// function enviarFormulario()
+// {
+// var correo = document.getElementById("correo");
+// var usuario = document.getElementById("user");
+// var contrasena = document.getElementById("psw");
+// var confirmarContrasena = document.getElementById("confPsw");
+// var correoform = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+// //validar usuario
+// if(usuario.value === "" || usuario.value === null){
+//     alert("Debe ingresar un Nombre de usuario");
+    
+//     return false;
+//     }
 
-return false;
-}
+// // validar contraseña
+// if (contrasena.value === "" || contrasena.value === null) {
+//     alert("Debe ingresar una contraseña");
+//     return false;
+// }
+// // validar confirmación de contraseña
+// if (confirmarContrasena.value === "" || confirmarContrasena.value === null) {
+//     alert("Debe confirmar la contraseña");
+//     return false;
+//     }
+    
+// if (confirmarContrasena.value !== contrasena.value ) {
+// alert("Las contraseñas no coinciden");
+// return false;
+// }
+// // validar correo
+// if(correo.value.match(correoform))
+// {
+
+// return true;
+// }
+// else
+// {
+// alert("Debe ingresar un correo electronico valido");
+
+// return false;
+// }
 
 
-} 
+// } 
 
 const count = document.getElementById("contador-productos");
 const agregar = document.getElementById("agregar");
