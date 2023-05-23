@@ -123,10 +123,6 @@ function agregarC(id){
     mostrarCarrito();
     console.log(carrito);
 }
-const mostrarCarrito = ()=>{
-
-    guardarCarrito();
-}
 
 function carro(){
     const contenedor = document.querySelector('.modal .modal-body');
