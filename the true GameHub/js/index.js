@@ -79,7 +79,7 @@ const listaProductos = [
 ];
 
 listaProductos.forEach((producto)=>{
-    const {id, nombre,precio} = producto
+    const {id, nombre,precio} = producto;
 });
 
 
@@ -92,8 +92,8 @@ function agregarC(id){
 const contenedor = document.querySelector('.modal-content');
 const mostrarCarrito= ()=>{
     
-    carrito.forEach((producto) => {
-        const {id, nombre, precio} = producto;
+    carrito.forEach((prod) => {
+        const {id, nombre, precio} = prod;
 
         contenedor.innerHTML += '<p id="carro">'+nombre + " " + "$" + precio +"</p> <br>";
     })
