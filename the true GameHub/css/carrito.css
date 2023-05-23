@@ -1,4 +1,7 @@
-fieldset{
-    background-color: rgb(253, 176, 9);
-    border: 5px rgb(78, 77, 77) solid;
+#contenedor{
+    display: flex;
+    align-items: center;
+    background-color: azure;
+    color: black;
+
 }

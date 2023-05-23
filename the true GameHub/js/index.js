@@ -48,8 +48,54 @@ const count = document.getElementById("contador-productos");
 const agregar = document.getElementById("agregar");
 let number = 0;
 
+
+
+const listaProductos = [
+    {
+        id:1,
+        nombre: "Escape from Tarkov",
+        precio: 27000
+    },
+    {
+        id:2,
+        nombre:"Minecraft",
+        precio:20000
+    }
+];
+
+listaProductos.forEach((producto)=>{
+    const {id, nombre,precio} = producto
+});
+
+
+function agregarC(id){
+    const item = listaProductos.find((producto) => producto.id === id);
+    carrito.push(item);
+    mostrarCarrito();
+}
+const mostrarCarrito= ()=>{
+    const contenedor = document.getElementById("divi");
+    carrito.forEach((prod) => {
+        const {id, nombre, precio} = prod;
+        contenedor.innerHTML = nombre;
+    })
+    guardarCarrito();
+}
+
+function eliminarProducto(id){
+    const juegoId = id
+    carrito = carrito.filter((juego) => juego.id !== juegoId)
+    mostrarCarrito()
+}
+
+function guardarCarrito(){
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+const carrito = []
+
+
 agregar.addEventListener("click", ()=>{
     number++;
     count.innerHTML = number;
-})
+});
 
