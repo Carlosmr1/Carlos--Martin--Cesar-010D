@@ -2,11 +2,11 @@
 
     {%block content%}
 	    {% for post in posts %}
-	    <div>
-		    <p> publicado: {{ post.published_date }}</p>
-		    <img class="imagen" src="../../../media/Productos/KitInicio_ZJtLJA2.png" alt="a">
-		    <h2><a href="">{{ post.nombre }}</a></h2>
-		    <p>{{ post.descripcion|linebreaksbr }}</p>
-	    </div>
+	        <div>
+                <img class="imagen" src="../../../media/Productos/KitInicio_ZJtLJA2.png" alt="a">
+                <h2><a href="">{{ post.nombre }}</a></h2>
+                <p> publicado: {{ post.published_date }}</p>
+                <p>{{ post.descripcion|linebreaksbr }}</p>
+	        </div>
         {% endfor %}
     {%endblock%}

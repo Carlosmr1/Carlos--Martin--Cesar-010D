@@ -13,4 +13,4 @@ def juegos(request):
     return render(request, 'web/juegos.html',{})
 
 def tableGames(request):
-    return render(request,'web/tableGames.html',{})
+    return render(request,'web/tableGame.html',{})
