@@ -40,3 +40,10 @@ class Tablegames(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class User(models.Model):
+    usuario = models.CharField(max_length=200)
+    correo = models.CharField(max_length=200)
+    contrasena = models.CharField(max_length=20)
+    def __str__(self):
+        return self.usuario
