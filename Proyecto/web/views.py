@@ -14,12 +14,3 @@ def juegos(request):
 
 def tableGames(request):
     return render(request,'web/tableGame.html',{})
-
-def cuenta(request):
-    return render(request,'web/cuenta.html',{})
-
-def nosotros(request):
-    return render(request,'web/nosotros.html',{})
-
-def newCuenta(request):
-    return render(request,'web/newUser.html',{})
