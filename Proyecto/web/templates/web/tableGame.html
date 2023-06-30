@@ -12,7 +12,8 @@
                     <h2> {{ post.nombre }}</h2>
                     <h1> {{ post.marca }} </h1>
                     <p> {{ post.descripcion }}</p>
-                    <p class="price">{{ post.precio }}</p>
+                    <p class="price">${{ post.precio }}</p>
+                    <a href="{% url 'add' post.nombre %}" class="btn btn-primary" id="agregar">agregar al carrito</a>
                 </div>
             </div>
         

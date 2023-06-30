@@ -1,7 +1,7 @@
 {% extends 'web/base.html' %}
 
 {%block contenido%}
-
+<div class="container-items">
 	{% for post in posts %}
 			<div class="item">
 				<figure>
@@ -11,8 +11,10 @@
 					<h2> {{ post.nombre }}</h2>
 					<h1> {{ post.marca }} </h1>
 					<p> {{ post.descripcion }}</p>
-					<p class="price">{{ post.precio }}</p>
+					<p class="price">${{ post.precio }}</p>
+					<a href="{% url 'add' post.nombre %}" class="btn btn-primary" id="agregar">agregar al carrito</a>
 				</div>
 			</div>
 	{% endfor %}
+</div>
 {%endblock%}
