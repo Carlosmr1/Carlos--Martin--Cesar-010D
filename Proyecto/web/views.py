@@ -10,7 +10,8 @@ def index(request):
     return render(request,'web/index.html',{})
 
 def juegos(request):
-    return render(request, 'web/juegos.html',{})
+    posts = Tablegames.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'web/juegos.html',{'posts':posts})
 
 def tableGames(request):
     return render(request,'web/tableGame.html',{})

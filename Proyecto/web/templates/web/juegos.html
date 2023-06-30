@@ -2,19 +2,14 @@
 
 {%block contenido%}
 
-
-		<div class="container-items">
+	{% endfor %}
 			<div class="item">
 				<figure>
-					<img
-						src="img/tarkov.webp"
-						alt="producto"
-					/>
+					<img src="" alt="">
 				</figure>
 				<div class="info-product">
 					<h2>Escape From Tarkov</h2>
 					<p class="price">$27.500 CLP</p>
-					<button id="agregar" onclick="agregarC(1)">Añadir al carrito</button>
 				</div>
 			</div>
 			<div class="item">
@@ -80,4 +75,5 @@
 			</div>
 		  
 		</div>
-		{%endblock%}
+	{% endfor %}
+{%endblock%}
