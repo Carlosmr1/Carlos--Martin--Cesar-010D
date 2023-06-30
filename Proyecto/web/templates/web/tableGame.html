@@ -1,6 +1,7 @@
 {% extends 'web/base.html' %}
 
 {%block contenido%}
+
     {% for post in posts %}
     <div class="item">
         <figure>
@@ -14,4 +15,5 @@
         </div>
     </div>
     {% endfor %}
+    
 {%endblock%}
