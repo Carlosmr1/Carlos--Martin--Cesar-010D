@@ -4,13 +4,13 @@
     {% for post in posts %}
     <div class="item">
         <figure>
-            <img src="{{ post.imagenT.url }}" alt="imagen">
+            <img src="{{ post.imagen.url }}" alt="imagen">
         </figure>
         <div class="info-product">
-            <h2> {{ post.nombreT }}</h2>
-            <h1> {{ post.marcaT }} </h1>
-            <p> {{ post.descripcionT }}</p>
-            <p class="price">{{ post.precioT }}</p>
+            <h2> {{ post.nombre }}</h2>
+            <h1> {{ post.marca }} </h1>
+            <p> {{ post.descripcion }}</p>
+            <p class="price">{{ post.precio }}</p>
         </div>
     </div>
     {% endfor %}

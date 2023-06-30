@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Tablegames, Videogames,TablegamesN
+from .models import Tablegames, Videogames
 from django.utils import timezone
 # Create your views here.
 def post_list(request):
@@ -13,11 +13,9 @@ def juegos(request):
     posts = Videogames.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'web/juegos.html',{'posts':posts})
 
-def tableGamesN(request):
-    posts = TablegamesN.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request,'web/tableGame.html',{"posts":posts})
 
 def tableGames(request):
+    posts = Tablegames.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request,'web/tableGame.html',{})
 
 def cuenta(request):
