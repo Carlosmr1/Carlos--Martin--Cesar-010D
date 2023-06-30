@@ -1,6 +1,10 @@
-from django.shortcuts import render
-from .models import Tablegames, Videogames
+from django.shortcuts import render, redirect
+from .models import Tablegames, Videogames, User
 from django.utils import timezone
+from django.views.generic import View
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+
 # Create your views here.
 def post_list(request):
     posts = Tablegames.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -19,10 +23,29 @@ def tableGames(request):
     return render(request,'web/tableGame.html',{"posts":posts})
 
 def cuenta(request):
-    return render(request,'web/cuenta.html',{})
+    return render(request,'registro/cuenta.html',{})
 
-def newCuenta(request):
-    return render(request, 'web/newUser.html',{})
+# def newCuenta(request):
+#     return render(request, 'web/newUser.html',{})
 
 def nosotros(request):
     return render(request,'web/nosotros.html',{})
+
+class registro(View):
+
+    def get(self, request):
+        form=UserCreationForm()
+        return render(request,'registro/newUser.html',{'form':form})
+
+    def post(self, request):
+        form=UserCreationForm(request.POST)
+        if form.is_valid():
+            User=form.save()
+
+            login(request, User)
+
+            return redirect('')
+        
+        else:
+            pass
+        

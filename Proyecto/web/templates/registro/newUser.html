@@ -1,10 +1,10 @@
 {% extends 'web/base.html' %}
 
 {%block contenido%}
-
     <!--loggin textfields-->
     <fieldset>
-      <form name="formulario" action="index.html" method="post" >
+      <form name="formulario" action="../" method="post" >
+        {% csrf_token %}
         <div class="contenedor">
           <label for="uname"><b>Correo Electronico</b></label>
           <br />
@@ -48,7 +48,7 @@
           />
           
           <br />
-          <button id="submit" type="submit" name="submit" value="sumbit" onclick="enviarFormulario()">CREAR CUENTA</button>
+          <button id="submit" type="submit" name="submit" >CREAR CUENTA</button>
           <br />
         </div>
       </form>
