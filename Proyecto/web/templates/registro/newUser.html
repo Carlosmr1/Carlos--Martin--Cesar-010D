@@ -3,53 +3,11 @@
 {%block contenido%}
     <!--loggin textfields-->
     <fieldset>
-      <form name="formulario" action="../" method="post" >
-        {% csrf_token %}
+      <form name="formulario" action="" method="POST" >
         <div class="contenedor">
-          <label for="uname"><b>Correo Electronico</b></label>
-          <br />
-          <input
-            type="text"
-            placeholder="Ingrese Correo Electronico"
-            name="correo"
-            id="correo"
-            required
-          />
-          <br>
-          <label for="uname"><b>Usuario</b></label>
-          <br />
-          <input
-            type="text"
-            placeholder="Ingrese Nombre Usuario"
-            name="user"
-            id="user"
-          />
-          <br />
-          <label for="psw"><b>Contraseña</b></label>
-          <br />
-          <input
-            type="password"
-            placeholder="Ingrese Contraseña"
-            name="psw"
-            id="psw"
-            
-          />
-          <br />
-          <label for="confPsw"><b>Confirmar Contraseña</b></label>
-          <br />
-          <input
-            type="password"
-            placeholder="Confirme su la Contraseña"
-            name="confPsw"
-            id="confPsw"
-            minlength="3"
-            maxlength="8"return 
-            
-          />
-          
-          <br />
+            {% csrf_token %}
+            {{form}}
           <button id="submit" type="submit" name="submit" >CREAR CUENTA</button>
-          <br />
         </div>
       </form>
     </fieldset>

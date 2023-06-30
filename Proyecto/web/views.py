@@ -40,11 +40,11 @@ class registro(View):
     def post(self, request):
         form=UserCreationForm(request.POST)
         if form.is_valid():
-            User=form.save()
+            Usuario=form.save()
 
-            login(request, User)
+            login(request, Usuario)
 
-            return redirect('')
+            return redirect('../')
         
         else:
             pass
