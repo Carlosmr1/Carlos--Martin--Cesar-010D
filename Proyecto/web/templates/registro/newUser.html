@@ -1,0 +1,14 @@
+{% extends 'web/base.html' %}
+
+{%block contenido%}
+    <!--loggin textfields-->
+    <fieldset>
+      <form name="formulario" action="" method="POST" >
+        <div class="contenedor">
+            {% csrf_token %}
+            {{form}}
+          <button id="submit" type="submit" name="submit" >CREAR CUENTA</button>
+        </div>
+      </form>
+    </fieldset>
+    {%endblock%}

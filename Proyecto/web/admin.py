@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Videogames, Marca, Tablegames
+from .models import Videogames, Marca, Tablegames, User
 
 
 # Register your models here.
@@ -12,3 +12,4 @@ class ProductosAdmin(admin.ModelAdmin):
 admin.site.register(Marca)
 admin.site.register(Tablegames, ProductosAdmin )
 admin.site.register(Videogames, ProductosAdmin)
+admin.site.register(User)
