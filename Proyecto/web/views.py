@@ -6,6 +6,10 @@ from django.utils import timezone
 from django.views.generic import View
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.shortcuts import render, redirect
+from .forms import UserForm, LoginForm
+from django.contrib.auth.hashers import make_password
+from django.contrib import messages
 
 # Create your views here.
 
@@ -69,10 +73,44 @@ def limpiar_carrito(request):
     return redirect('../')
 
 def cuenta(request):
-    return render(request,'registro/cuenta.html',{})
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            usuario = form.cleaned_data['usuario']
+            contrasena = form.cleaned_data['contrasena']
+            user = authenticate(request, username=usuario, password=contrasena)
+            if user is not None:
+                login(request, user)
+                return redirect('../')  #lo manda al inicio
+            else:
+                form.add_error(None, 'Credenciales inválidas')
+    else:
+        form = LoginForm()
+    return render(request, 'registro/cuenta.html', {'form': form}) 
 
-# def newCuenta(request):
-#     return render(request, 'web/newUser.html',{})
+def newCuenta(request):
+    if request.method == 'POST':
+        form = UserForm(data=request.POST)
+        if form.is_valid():
+            usuario = form.cleaned_data['usuario']
+            correo = form.cleaned_data['correo']
+            contrasena = form.cleaned_data['contrasena']
+            confirmar_contrasena = form.cleaned_data['confirmar_contrasena']
+            
+            if contrasena == confirmar_contrasena:
+                
+                contrasena_segura = make_password(contrasena)
+                
+                
+                user = User(usuario=usuario, correo=correo, contrasena=contrasena_segura)
+                user.save()
+                
+                
+                return redirect('../')
+    else:
+        form = UserForm()
+    
+    return render(request, 'registro/newUser.html', {'form': form})
 
 def nosotros(request):
     return render(request,'web/nosotros.html',{})

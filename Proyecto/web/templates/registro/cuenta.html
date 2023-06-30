@@ -1,61 +1,21 @@
 {% extends 'web/base.html' %}
-
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
 {%block contenido%}
+
     
-    <!--loggin textfields-->
-    <div>
-    <fieldset>
-      <form action="index.html" method="post">
-        <div class="imgcontenedor">
-          <img src="img/User.png" alt="Avatar" class="avatar" />
-        </div>
-
-        <div class="contenedor">
-          <label for="uname"><b>Usuario</b></label>
-          <br />
-          <input
-            type="text"
-            placeholder="Ingrese Nombre Usuario"
-            name="uname"
-            required
-          />
-          <br />
-          <label for="psw"><b>Contraseña</b></label>
-          <br />
-          <input
-            type="password"
-            placeholder="Ingrese Contraseña"
-            name="psw"
-            required
-          />
-
-          <br />
-          <label>
-            <input
-              type="checkbox"
-              checked="checked"
-              name="remember"
-              id="checksitos"
-            />
-            Recuerdame diosito
-            <br />
-            <span class="psw" id="checksitos"
-              >¿Olvidaste tu <a href="pwreset.html">Contraseña</a>? <br> <a href="../newCuenta">Registrar cuenta </a></span
-            >
-          </label>
-          <br />
-          <div>
-            <a href="index.html">
-            <button type="submit" >Login</button>
-            </a>
-        </div>
-            <br>  
-      <div>
-        
-        
-      </form>
-
-    </fieldset>
-        
-    </div>
-    {%endblock%}
+<h2>Iniciar sesión</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form | crispy }}
+  <br>
+  <span class="psw" id="checksitos">
+   <br> 
+   No tienes Cuenta? 
+   <br>
+   <a href="../newCuenta">Registrar cuenta </a>
+  </span>
+  <br>
+    <button type="submit">Iniciar sesión</button>
+</form>
+{%endblock%}
