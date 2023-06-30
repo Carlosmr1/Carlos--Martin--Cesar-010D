@@ -2,11 +2,16 @@
 
 {%block contenido%}
     {% for post in posts %}
-        <div>
-            <img class="imagen" src="../../../media/Productos/KitInicio_ZJtLJA2.png" alt="a">
-            <h2><a href="">{{ post.nombre }}</a></h2>
-            <p> publicado: {{ post.published_date }}</p>
-            <p>{{ post.descripcion|linebreaksbr }}</p>
+    <div class="item">
+        <figure>
+            <img src="{{ post.imagenT.url }}" alt="imagen">
+        </figure>
+        <div class="info-product">
+            <h2> {{ post.nombreT }}</h2>
+            <h1> {{ post.marcaT }} </h1>
+            <p> {{ post.descripcionT }}</p>
+            <p class="price">{{ post.precioT }}</p>
         </div>
+    </div>
     {% endfor %}
 {%endblock%}

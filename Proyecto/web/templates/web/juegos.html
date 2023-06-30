@@ -2,78 +2,17 @@
 
 {%block contenido%}
 
-	{% endfor %}
+	{% for post in posts %}
 			<div class="item">
 				<figure>
-					<img src="" alt="">
+					<img src="{{ post.imagen.url }}" alt="imagen">
 				</figure>
 				<div class="info-product">
-					<h2>Escape From Tarkov</h2>
-					<p class="price">$27.500 CLP</p>
+					<h2> {{ post.nombre }}</h2>
+					<h1> {{ post.marca }} </h1>
+					<p> {{ post.descripcion }}</p>
+					<p class="price">{{ post.precio }}</p>
 				</div>
 			</div>
-			<div class="item">
-				<figure>
-					<img
-						src="img/minecraft.webp"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>Minecraft Java Edition</h2>
-					<p class="price">$20.000 CLP</p>
-					<button id="agregar" onclick="agregarC(2)">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item">
-				<figure>
-					<img
-						src="img/tlou.webp"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>The Last Of Us Part I</h2>
-					<p class="price">$30.900 CLP</p>
-					<button id="agregar" onclick="agregarC(3)">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item">
-				<figure>
-					<img
-						src="img/project.jfif"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>Project Zomboid</h2>
-					<p class="price">$17.000 CLP</p>
-					<button id="agregar" onclick="agregarC(4)">Añadir al carrito</button>
-				</div>
-			</div>
-			<div class="item">
-				<figure>
-					<img
-						src="img/Cult.png"
-						alt="producto"
-					/>
-				</figure>
-				<div class="info-product">
-					<h2>Cult Of The Lamb</h2>
-					<p class="price">$14.909 CLP</p>
-					<button id="agregar" onclick="agregarC(5)">Añadir al carrito</button>
-				</div>
-			</div>
-		</div>
-		<div id="myModal" class="modal">
-
-			<!-- Modal content -->
-			<div class="modal-content">
-				<span onclick="close()" class="close">&times;</span>
-				
-				<button onclick="finalizarCompra()" id="comprarbtn"> COMPRAR</button>
-			</div>
-		  
-		</div>
 	{% endfor %}
 {%endblock%}

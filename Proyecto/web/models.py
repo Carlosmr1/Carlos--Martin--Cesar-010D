@@ -41,6 +41,21 @@ class Tablegames(models.Model):
     def __str__(self):
         return self.nombre
 
+class TablegamesN(models.Model):
+    marcaT = models.ForeignKey(Marca,on_delete=models.PROTECT)
+    nombreT = models.CharField(max_length=200)
+    descripcionT = models.TextField()
+    precioT = models.IntegerField()
+    imagenT = models.ImageField(upload_to='productos', null=True)
+    published_dateT = models.DateTimeField(
+            blank=True, null=True)
+    def publish(self):
+        self.published_dateT = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.nombreT
+    
 class User(models.Model):
     usuario = models.CharField(max_length=200)
     correo = models.CharField(max_length=200)
