@@ -1,14 +1,26 @@
 {% extends 'web/base.html' %}
-
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
 {%block contenido%}
     <!--loggin textfields-->
-    <fieldset>
-      <form name="formulario" action="" method="POST" >
-        <div class="contenedor">
-            {% csrf_token %}
-            {{form}}
-          <button id="submit" type="submit" name="submit" >CREAR CUENTA</button>
+  <section class="contenedor">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 cold-md-d6">
+        <div class="card">
+          <div class="card-body">
+            <form name="formulario" action="" method="post" >
+              
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="d-flex justify-content-evenly"> 
+                  <button id="submit" type="submit" name="submit" >CREAR CUENTA</button>
+                </div>
+              </div>
+            </form>
         </div>
-      </form>
+      </div>
+    </div>
+  </section>
+
     </fieldset>
     {%endblock%}

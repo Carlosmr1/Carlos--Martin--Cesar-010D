@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Tablegames, Videogames, User
 from django.utils import timezone
-from django.views.generic import View
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from .forms import UserForm
+from django.contrib.auth.hashers import make_password
+from django.contrib import messages
+
 
 # Create your views here.
 def post_list(request):
@@ -25,27 +26,37 @@ def tableGames(request):
 def cuenta(request):
     return render(request,'registro/cuenta.html',{})
 
-# def newCuenta(request):
-#     return render(request, 'web/newUser.html',{})
+
+
+def newCuenta(request):
+    if request.method == 'POST':
+        form = UserForm(data=request.POST)
+        if form.is_valid():
+            usuario = form.cleaned_data['usuario']
+            correo = form.cleaned_data['correo']
+            contrasena = form.cleaned_data['contrasena']
+            confirmar_contrasena = form.cleaned_data['confirmar_contrasena']
+            
+            if contrasena == confirmar_contrasena:
+                
+                contrasena_segura = make_password(contrasena)
+                
+                
+                user = User(usuario=usuario, correo=correo, contrasena=contrasena_segura)
+                user.save()
+                
+                
+                return redirect('../')
+    else:
+        form = UserForm()
+    
+    return render(request, 'registro/newUser.html', {'form': form})
+    
+
 
 def nosotros(request):
     return render(request,'web/nosotros.html',{})
 
-class registro(View):
 
-    def get(self, request):
-        form=UserCreationForm()
-        return render(request,'registro/newUser.html',{'form':form})
-
-    def post(self, request):
-        form=UserCreationForm(request.POST)
-        if form.is_valid():
-            Usuario=form.save()
-
-            login(request, Usuario)
-
-            return redirect('../')
-        
-        else:
-            pass
+    
         
