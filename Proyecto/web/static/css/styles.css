@@ -411,6 +411,6 @@ form {
   float: inline-start;
 }
 
-td{
-  color:white;
+#rest{
+ background-color: red;
 }

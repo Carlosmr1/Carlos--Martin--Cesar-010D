@@ -58,9 +58,9 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="row" colspan="3" class="text-center">Carrito</th>
+                <th scope="row" colspan="3" class="text-center" style="color: aliceblue;">Carrito</th>
             </tr>
-            <tr>
+            <tr style="color: antiquewhite;">
                 <th scope="col">NOMBRE</th>
                 <th scope="col">PRECIO</th>
                 <th scope="col">CANTIDAD</th>
@@ -69,13 +69,13 @@
     
     <tbody>
         {% if request.session.carrito.items %}
-        {% for key, value in requiest.session.carrito.items %}
-        <tr>
-            <td>{{ value.nombre }}</td>
-            <td>{{ value.precio}}</td>
-            <td>{{ value.acumulado }}
-                <a href="{$ url 'add' value.producto_nombre %}" class="badge btn btn-light badge-light">+</a>
-                <a href="{$ url 'res' value.producto_nombre %}" class="badge btn btn-light badge-light">-</a>
+        {% for key, value in request.session.carrito.items %}
+        <tr style="color: wheat;">
+            <td>{{value.producto_nombre}}</td>
+            <td>{{value.acumulado}}</td>
+            <td>{{value.cantidad}}
+                <a href="{% url 'add' value.producto_nombre %}" class="badge btn btn-light badge-light">+</a>
+                <a href="{% url 'rest' value.producto_nombre %}" class="badge btn btn-light badge-light">-</a>
             </td>   
         </tr>
         {% endfor %}
@@ -87,8 +87,8 @@
         </tr>
         {% endif %}
         <tr>
-            <th scope="row">TOTAL</th>
-            <td colspan="2">$ {{total_carrito}}</td>
+            <th scope="row" style="color: aliceblue;">TOTAL</th>
+            <td colspan="2" style="color: azure;">$ {{total_carrito}}</td>
         </tr>
     </tbody>
     </table>    
