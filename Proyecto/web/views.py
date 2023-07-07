@@ -39,7 +39,7 @@ def eliminar_producto(request, producto_nombre):
     carrito = Carrito(request)
     producto = Productos.objects.get(nombre = producto_nombre)
     carrito.eliminar(producto)
-    return redirect('#')
+    return redirect('../carrito')
 
 def restar_producto(request, producto_nombre):
     carrito = Carrito(request)
