@@ -9,10 +9,16 @@ class Marca(models.Model):
 
     def __str__(self):
         return self.nombre
+class Categoria(models.Model):
+    tipo = models.CharField(max_length=30)
 
-class Videogames(models.Model):
+    def __str__(self):
+        return self.tipo
+    
+class Productos(models.Model):
     marca = models.ForeignKey(Marca,on_delete=models.PROTECT)
     nombre = models.CharField(max_length=200)
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
     descripcion = models.TextField()
     precio = models.IntegerField()
     imagen = models.ImageField(upload_to='productos', null=True)
@@ -26,21 +32,6 @@ class Videogames(models.Model):
     def __str__(self):
         return self.nombre
     
-class Tablegames(models.Model):
-    marca = models.ForeignKey(Marca,on_delete=models.PROTECT)
-    nombre = models.CharField(max_length=200)
-    descripcion = models.TextField()
-    precio = models.IntegerField()
-    imagen = models.ImageField(upload_to='productos', null=True)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
-
-    def __str__(self):
-        return self.nombre
-
     
 class User(models.Model):
     usuario = models.CharField(max_length=200)

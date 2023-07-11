@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from .cart import Carrito
-from .models import Tablegames, Videogames, User
+from .models import Productos, User
 from django.utils import timezone
 from django.views.generic import View
 from django.contrib.auth.forms import UserCreationForm
@@ -16,56 +16,36 @@ from django.contrib import messages
 
 
 
-def post_list(request):
-    posts = Tablegames.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'web/post_list.html', {'posts':posts})
 
 def index(request):
     return render(request,'web/index.html',{})
 
-def juegos(request):
-    productos = Videogames.objects.all()
-    posts = Videogames.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'web/juegos.html',{'posts':posts, "productos":productos})
-
-
 def tableGames(request):
-    productos = Tablegames.objects.all()
-    posts = Tablegames.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request,'web/tableGame.html',{"posts":posts, "productos":productos})
+    productos = Productos.objects.filter(categoria__tipo__icontains ='mesa')
+    return render(request, 'web/tableGame.html',{"productos":productos})
+
+def juegos(request):
+    productos = Productos.objects.filter(categoria__tipo__icontains='VideoJuegos')
+    return render(request, 'web/juegos.html',{"productos":productos})
+
 
 def agregar_producto(request, producto_nombre):
     carrito = Carrito(request)
-    producto = Tablegames.objects.get(nombre = producto_nombre)
+    producto = Productos.objects.get(nombre = producto_nombre)
     carrito.agregar(producto)
-    return redirect('../juegosMesa/')
-def agregar_producto(request, producto_nombre):
-    carrito = Carrito(request)
-    producto = Videogames.objects.get(nombre = producto_nombre)
-    carrito.agregar(producto)
-    return redirect('juegos')
+    return redirect('../carrito')
 
 def eliminar_producto(request, producto_nombre):
     carrito = Carrito(request)
-    producto = Tablegames.objects.get(nombre = producto_nombre)
+    producto = Productos.objects.get(nombre = producto_nombre)
     carrito.eliminar(producto)
-    return redirect('../juegosMesa/')
-def eliminar_producto(request, producto_nombre):
-    carrito = Carrito(request)
-    producto = Videogames.objects.get(nombre = producto_nombre)
-    carrito.eliminar(producto)
-    return redirect('../juegos/')
+    return redirect('../carrito')
 
 def restar_producto(request, producto_nombre):
     carrito = Carrito(request)
-    producto = Tablegames.objects.get(nombre = producto_nombre)
+    producto = Productos.objects.get(nombre = producto_nombre)
     carrito.restar(producto)
-    return redirect('../juegosMesa/')
-def restar_producto(request, producto_nombre):
-    carrito = Carrito(request)
-    producto = Videogames.objects.get(nombre = producto_nombre)
-    carrito.restar(producto)
-    return redirect('../juegos/')
+    return redirect('../carrito')
 
 def limpiar_carrito(request):
     carrito = Carrito(request)
@@ -134,5 +114,4 @@ class registro(View):
             pass
 
 def carrito(request):    
-    posts = Videogames.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'web/carrito.html',{'posts': posts })
+    return render(request, 'web/carrito.html',{})
